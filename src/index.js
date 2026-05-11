@@ -25,13 +25,14 @@ const BookList = () => {
     )
 }
 
-const Book = (props) => {
-    console.log(props);
+const Book = ({img, title, author}) => {
+    // const { img, title, author } = props; //destrutturazione di una variabile
+    // console.log(props);\
     return (
         <article className='book'>
-            <img src={props.img} alt="Book cover" />
-            <h2>{props.title}</h2>
-            <h4>{props.author.toUpperCase()}</h4>
+            <img src={img} alt="Book cover" />
+            <h2>{title}</h2>
+            <h4>{author.toUpperCase()}</h4>
         </article>
     )
 }
