@@ -16,25 +16,20 @@ const BookList = () => {
 }
 
 const Book = () => {
+    const title = 'Titolo del libro';
+    const author = 'Luciana Littizzetto';
+    const img = "https://images-eu.ssl-images-amazon.com/images/I/61yLMlzSNOL._AC_UL900_SR900,600_.jpg";
     return (
         <article className='book'>
-            <Image />
-            <Title />
-            <Author />
+            <img src={img} alt="Book cover" />
+            <h2>{title}</h2>
+            <h4>{author.toUpperCase()}</h4>
+            
         </article>
     )
 }
 
 
-const Image = () => {
-    return <img src="https://images-eu.ssl-images-amazon.com/images/I/61yLMlzSNOL._AC_UL900_SR900,600_.jpg" alt="Book cover" />
-}
-const Title = () => {
-    return <h2>Luciana Littizzetto</h2>
-}
-const Author = () => {
-    return <h4>Book author</h4>
-}
 // function Gretting() {
 //     return React.createElement('h2',{}, 'Ciao sono un componente carino carino')
 // }
