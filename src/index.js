@@ -4,30 +4,35 @@ import ReactDOM from 'react-dom/client';
 import './index.css'; //il css si importa dentro i file js lol che strano
 
     
+const books = [
+    {
+        id: 1,
+        author: "J.R.R. Tolkin",
+        title: "Il signore degli anelli",
+        img: "https://images-eu.ssl-images-amazon.com/images/I/61yLMlzSNOL._AC_UL900_SR900,600_.jpg"
 
-const firstBook = {
-    author: "J.R.R. Tolkin",
-    title: "Il signore degli anelli",
-    img: "https://images-eu.ssl-images-amazon.com/images/I/61yLMlzSNOL._AC_UL900_SR900,600_.jpg"
-};
+    },
+    {
+        id: 2,
+        author: "George Orwell",
+        title: "1984",
+        img: "https://images-eu.ssl-images-amazon.com/images/I/61yLMlzSNOL._AC_UL900_SR900,600_.jpg"
+    }
+];
 
-const secondBook = {
-    author: "George Orwell",
-    title: "1984",
-    img: "https://images-eu.ssl-images-amazon.com/images/I/61yLMlzSNOL._AC_UL900_SR900,600_.jpg"
-};
 const BookList = () => {
     return (
         <section className='booklist'>
-            <Book title={firstBook.title} author={firstBook.author} img={firstBook.img} />
-            <Book title={secondBook.title} author={secondBook.author} img={secondBook.img} />
+            {books.map((book) => {
+                return <Book key={book.title} title={book.title} author={book.author} img={book.img} />;
+            })}
         </section>
     )
 }
 
-const Book = ({img, title, author}) => {
-    // const { img, title, author } = props; //destrutturazione di una variabile
-    // console.log(props);\
+const Book = (props) => {
+    const { img, title, author } = props; //destrutturazione di una variabile
+    console.log(props);
     return (
         <article className='book'>
             <img src={img} alt="Book cover" />
