@@ -59,3 +59,12 @@
     : 
     Object
     ```
+    per gestire i form si può usare onSubmit oppure il pulsante sbmit con onClick e la funzione
+    ```javascript
+            <form onSubmit={handleFormSubmission}>
+            <h2>Form tipico</h2>
+            <input onChange={handleFormChange} type="text" name="example" style={{margin: '1rem 0'}} />
+        </form>
+        <button type="button" onClick={handleButtonClick}>click me</button>
+        <button type="submit">submit</button>
+        ```
