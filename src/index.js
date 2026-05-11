@@ -21,24 +21,28 @@ const books = [
 ];
 
 const BookList = () => {
+    const someValue = 'Ciao sono una variabile bellissimaaa';
+
+    const getBook = (id) => {
+       const book = books.find((book) => book.id === id);
+       console.log(book);
+    }
     return (
         <section className='booklist'>
-            <EventExample />
             {books.map((book) => {
-                return <Book {...book} key={book.id} />;
+                return <Book {...book} key={book.id} getBook={getBook} />;
             })}
         </section>
     )
 }
-
-const Book = ({ img, title, author}) => {
+const Book = ({ img, title, author, getBook, id }) => {
     // const { img, title, author } = book; //destrutturazione di una variabile
     return (
         <article className='book'>
             <img src={img} alt="Book cover" />
             <h2>{title}</h2>
             <h4>{author.toUpperCase()}</h4>
-            <button type="button" onClick={() => console.log(title)}>Clicca per vedere il titolo</button>
+            <button type="button" onClick={() => getBook(id)}>Ottieni libro</button>
         </article>
     )
 }

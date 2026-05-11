@@ -68,3 +68,39 @@
         <button type="button" onClick={handleButtonClick}>click me</button>
         <button type="submit">submit</button>
         ```
+- in react possiamo passare dati solo verso il basso
+    ```javascript
+    const BookList = () => {
+        const someValue = 'Ciao sono una variabile bellissimaaa';
+        const displayValue = () => {
+            console.log(someValue);
+        }
+        return (
+            <section className='booklist'>
+                {books.map((book) => {
+                    return <Book {...book} key={book.id} displayValue={displayValue} />;
+                })}
+            </section>
+        )
+    }
+
+    const Book = ({ img, title, author, displayValue}) => {
+        // const { img, title, author } = book; //destrutturazione di una variabile
+        return (
+            <article className='book'>
+                <img src={img} alt="Book cover" />
+                <h2>{title}</h2>
+                <h4>{author.toUpperCase()}</h4>
+                <button type="button" onClick={displayValue}>Cliccami</button>
+            </article>
+        )
+    }
+    ```
+
+
+- nota una cosa, è stupido ma in realtà se ci pensi potresti incappare nello stesso errore in poco tempo
+    ```<button type="button" onClick={getBook(id)}>Ottieni libro</button>```
+    e
+    ```<button type="button" onClick={()=>getBook(id)}>Ottieni libro</button>```
+    sono completamente diversi. Al momento del render del componente, viene assegnata alla variabile onClick il valore dentro {}. Se questa è semplicemente la chiamata ad una funzione, essa viene chiamata. getBook viene chiamato durante il rendering del componente non al click del pulsante.
+    Perchè funzioni come si vuole veramente, bisogna definire la funzione dentro le parentesi, non la chiamata. quind si usa la lambda
