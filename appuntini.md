@@ -9,3 +9,4 @@
 - puoi usare jsx per scrivere elemnti del dom html, altrimenti puoi usae createElement
 - le funzioni possono ritornare un singolo componente html, quindi si wrappa tutto introrno ad un div se serve che vengano ritorante piu componenti
 - fragment per unire piu elementi da ritornare e non vuoi wrapparli in altri nodi (div, section etc) usare altri nodi
+- immagini meglio mettere dentro src e non dentro publc (qui sono meno performanti ma non so perchè, io ascolto il tipoi del tutorial)

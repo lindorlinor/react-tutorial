@@ -1,30 +1,44 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-function Gretting() {
-    return (<React.Fragment>
-                <Componente />
-                <P />
-                <Input />
-            </React.Fragment>)
-            
-}
+import './index.css'; //il css si importa dentro i file js lol che strano
+
         
-{/* ricordati di chiudere sempre i tag che sono singoli */}
-const Componente = () => <h1 className='io-sono-una-classe'>Ciao sono un componente carino carino</h1> //qui non posso avere logica aggiuntiva, quello che scrivo è quello che ritorno
-const P = () => {
-    //posso avere logica aggiuntiva perchè ho messo le parentesi graffe e il return
-    return <p>io sono qui solo per vedere come raggruppare elementi html senza aggiungere altri nodi (div)</p>
+const BookList = () => {
+    return (
+        <section className='booklist'>
+            <Book />
+            <Book />
+            <Book />
+            <Book />
+        </section>
+    )
 }
-const Input = () => <input type="text" placeholder='scrivi qualcosa' />; 
+
+const Book = () => {
+    return (
+        <article className='book'>
+            <Image />
+            <Title />
+            <Author />
+        </article>
+    )
+}
 
 
-
-
+const Image = () => {
+    return <img src="https://images-eu.ssl-images-amazon.com/images/I/61yLMlzSNOL._AC_UL900_SR900,600_.jpg" alt="Book cover" />
+}
+const Title = () => {
+    return <h2>Luciana Littizzetto</h2>
+}
+const Author = () => {
+    return <h4>Book author</h4>
+}
 // function Gretting() {
 //     return React.createElement('h2',{}, 'Ciao sono un componente carino carino')
 // }
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Gretting />); //ricorda di chiudere sempre il componente
+root.render(<BookList />); //ricorda di chiudere sempre il componente
