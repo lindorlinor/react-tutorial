@@ -24,15 +24,14 @@ const BookList = () => {
     return (
         <section className='booklist'>
             {books.map((book) => {
-                return <Book key={book.title} title={book.title} author={book.author} img={book.img} />;
+                return <Book {...book} key={book.id} />;
             })}
         </section>
     )
 }
 
-const Book = (props) => {
-    const { img, title, author } = props; //destrutturazione di una variabile
-    console.log(props);
+const Book = ({ img, title, author}) => {
+    // const { img, title, author } = book; //destrutturazione di una variabile
     return (
         <article className='book'>
             <img src={img} alt="Book cover" />
